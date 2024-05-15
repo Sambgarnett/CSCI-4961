@@ -1,0 +1,47 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}   
+
+.btn {
+    padding: 15px 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover{
+    background-color: #0056b3;
+}
+
+.btn:active{
+    background-color: #003d80;
+    transform: scale(0.98);
+}
+
+.header{
+    background-color: #003366; 
+    padding: 20px;
+    text-align: center;    
+}
+
+.title{
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff; 
+    margin: 0;
+    font-size: 2em; 
+}
+
+.backBar{
+    background-color: #000000;
+    padding: 15px;
+}
+
+h2{
+    font-family: 'Courier New', Courier, monospace;
+}
