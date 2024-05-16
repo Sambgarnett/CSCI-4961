@@ -60,12 +60,27 @@ h2{
     width: 250px;
     position: fixed;
     top: 0;
-    left: -240px;
+    left: -230px;
     background-color: #111;
     overflow-x: hidden;
     transition: left 0.5s;
     padding-top: 60px;
 }
+
+.menu-label {
+    position: absolute;
+    top: 40%;
+    right: 10px; 
+    transform: translateY(-50%) rotate(-90deg); 
+    transform-origin: right center;
+    background-color: #111;
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 
 .sidebar .btn {
     display: block;
@@ -110,4 +125,24 @@ h2{
     right: 0;
     width: 150px; 
     height: auto;
+}
+
+.black-box {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.5s;
+}
+
+.black-box-move-right {
+    transform: translateX(calc(-50% + 125px)); 
 }
