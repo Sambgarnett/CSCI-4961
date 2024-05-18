@@ -11,9 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const sidebar = document.getElementById('sidebar');
     const closeBtn = document.getElementById('close-btn');
-    const blackBox = document.getElementById('black-box'); 
-    const overlay = document.getElementById('overlay');
+    const blackBoxes = document.querySelectorAll('.black-box'); 
+    const overlays = document.querySelectorAll('.overlay');
+    const lectureButton = document.getElementById('LectureSideButton');
+    const lectureBars = document.querySelectorAll('.lecturebar');
     let lastMouseX = 0;
+    let isLecturebaropen = false;
+    let isHoveringLectureButtonOrBar = false;
+    let sideBarClosed = true;
 
     document.addEventListener('mousemove', (e) => {
         const currentMouseX = e.clientX;
@@ -28,7 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('mousemove', (e) => {
         const currentMouseX = e.clientX;
 
-        if (currentMouseX > 250){
+        if (currentMouseX > 250 && !isLecturebaropen) {
+            closeSidebar();
+        } else if (currentMouseX > 500 && isLecturebaropen) {
             closeSidebar();
         }
     });
@@ -40,17 +47,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function openSidebar() {
         sidebar.classList.add('sidebar-open');
+        lectureBars.forEach(lectureBar => lectureBar.classList.add('lecturebar-open'));
         document.querySelector('.main-content').style.marginLeft = '250px';
-        blackBox.classList.add('black-box-move-right'); 
-        overlay.classList.add('overlay-visible');
+        blackBoxes.forEach(box => box.classList.add('black-box-move-right'));
+        overlays.forEach(overlay => overlay.classList.add('overlay-visible'));
+        sideBarClosed = false;
     }
 
     function closeSidebar() {
         sidebar.classList.remove('sidebar-open');
+        lectureBars.forEach(lectureBar => lectureBar.classList.remove('lecturebar-open'));
         document.querySelector('.main-content').style.marginLeft = '0';
-        blackBox.classList.remove('black-box-move-right'); 
-        overlay.classList.remove('overlay-visible');
+        blackBoxes.forEach(box => box.classList.remove('black-box-move-right')); 
+        overlays.forEach(overlay => overlay.classList.remove('overlay-visible'));
+        sideBarClosed = true;
     }
 
-    window.openSidebar = openSidebar;
+    function handleMouseEnter() {
+        if (!sideBarClosed){
+            lectureBars.forEach(lectureBar => lectureBar.classList.add('lecturebar-extend'));
+            isLecturebaropen = true;
+            isHoveringLectureButtonOrBar = true;
+        }
+    }
+
+    function handleMouseLeave(event) {
+        isHoveringLectureButtonOrBar = false;
+        if (event.clientX < 250) {
+            setTimeout(() => {
+                if (!isHoveringLectureButtonOrBar) {
+                    lectureBars.forEach(lectureBar => lectureBar.classList.remove('lecturebar-extend'));
+                    isLecturebaropen = false;
+                }
+            }, 200); 
+        } else {
+            if (!isHoveringLectureButtonOrBar || sideBarClosed) {
+                lectureBars.forEach(lectureBar => lectureBar.classList.remove('lecturebar-extend'));
+                isLecturebaropen = false;
+            }
+        }
+    }
+
+    if (lectureButton) {
+        lectureButton.addEventListener('mouseenter', handleMouseEnter);
+        lectureButton.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    lectureBars.forEach(lectureBar => {
+        lectureBar.addEventListener('mouseenter', handleMouseEnter);
+        lectureBar.addEventListener('mouseleave', handleMouseLeave);
+    });
 });
