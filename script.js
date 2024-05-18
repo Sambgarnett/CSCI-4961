@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const sidebar = document.getElementById('sidebar');
     const closeBtn = document.getElementById('close-btn');
-    const blackBox = document.getElementById('black-box'); // Get the black box element
+    const blackBox = document.getElementById('black-box'); 
+    const overlay = document.getElementById('overlay');
     let lastMouseX = 0;
 
     document.addEventListener('mousemove', (e) => {
@@ -24,6 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
         lastMouseX = currentMouseX;
     });
 
+    document.addEventListener('mousemove', (e) => {
+        const currentMouseX = e.clientX;
+
+        if (currentMouseX > 250){
+            closeSidebar();
+        }
+    });
+
     closeBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         closeSidebar();
@@ -33,12 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.classList.add('sidebar-open');
         document.querySelector('.main-content').style.marginLeft = '250px';
         blackBox.classList.add('black-box-move-right'); 
+        overlay.classList.add('overlay-visible');
     }
 
     function closeSidebar() {
         sidebar.classList.remove('sidebar-open');
         document.querySelector('.main-content').style.marginLeft = '0';
         blackBox.classList.remove('black-box-move-right'); 
+        overlay.classList.remove('overlay-visible');
     }
 
     window.openSidebar = openSidebar;
