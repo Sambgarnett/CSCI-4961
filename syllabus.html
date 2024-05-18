@@ -16,12 +16,13 @@
         <a class="btn" data-url="#about">About</a>        
     </div>
     <div class="main-content">
-        <header class="header">
-            <h1 class="title">CSCI-4961 Intro to Quantum Computing<br>Summer 24<br>Syllabus</h1>
-            <img src="idgMV6GfG_.png" alt="Top Right Image" class="top-right-image">
+        <header class="header", style="background-color: white;">
+            <h1 class="title", style="color: black;">CSCI-4961 - Intro to Quantum Computing<br>Summer 24<br>Syllabus</h1>
+            <img src="rpi200-theme-light.webp" alt="Top Right Image" class="top-right-image">
         </header>
+        <div class="black-box", id="black-box", style="width: 80%; margin-top: 75px;">
         <h2>Course Overview</h2>
-        <p>
+        <p, style="color: white;">
             Intro to Quantum Computing intends to give anyone interested an introduction to quantum computing, no background needed! Intro
             to Quantum Computing builds off of computing (CSCI-2200) and algorithm (CSCI-2300) basics. This course delves into fundemental
             principles like qubits, superposition, entanglement, and quantum circuits/algorithms. In this course, students will engage in 
@@ -35,13 +36,15 @@
             computing principles, an understanding of quantum advantage, proficency in reading and analyzing quantum circuits and algorithms,
             and insight into practical applications. 
         </p>
-        <header class="header">
+        <div, class="button-container">
             <button class="btn" id="redirect1", data-url="basicInfo.html">Basic Info</button> 
             <button class="btn" id="redirect2", data-url="gradingScheme.html">Grading Scheme/Logistics</button>
             <button class="btn" id="redirect3", data-url="courseMaterials.html">Course Materials</button>
             <button class="btn" id="redirect4", data-url="courseTopics.html">Course Topics</button>
-        </header>
+        </div>
+        </div>
         <script src="script.js"></script>
     </div>
+    <div class="overlay" id="overlay"></div>
 </body>
 </html>
