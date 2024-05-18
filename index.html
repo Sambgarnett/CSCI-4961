@@ -19,22 +19,16 @@
             margin-top: -200px;
         }
 
-        .header {
+        .centerText {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: row;
-            gap: 10px; 
-            justify-content: center;
-            align-items: center;
+            background-color: #ffffff;
         }
         
-        .title {
+        .centerTitle {
+            color: black;
             margin: 0;
         }
 
@@ -44,33 +38,10 @@
             right: 10px; 
             max-width: 100px; 
         }
-
-
-        .btn {
-            padding: 15px 30px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            background-color: #232323;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #151515;
-        }
-
-        .btn:active {
-            background-color: #000000;
-            transform: scale(0.7);
-        }
     </style>
 </head>
-<body style="background-color: #c03636;">
-    <img src="idgMV6GfG_.png", class="top-right-logo">
+<body style="background-color: #ffffff;">
+    <img src="rpi200-theme-light.webp", class="top-right-logo">
     <div id="sidebar" class="sidebar">
         <div class="menu-label">Menu</div>
         <button class="btn close-btn" id="close-btn">&times;</button>
@@ -80,8 +51,8 @@
         <a class="btn" data-url="#about">Homeworks</a>
     </div>
     <div class="main-content">
-        <header class="header">
-            <h1 class="title">CSCI-4961 - Intro to Quantum Computing<br> Summer 2024</h1>
+        <header class="centerText">
+            <h1 class="centerTitle", style="font-family: 'Courier New', Courier, monospace;">CSCI-4961 - Intro to Quantum Computing<br> Summer 2024</h1>
         </header>
         <div class="button-container">
             <button class="btn" id="redirect1" data-url="syllabus.html">Syllabus</button>
@@ -91,8 +62,9 @@
         </div>
         <div class="black-box", id="black-box" style="margin-top: 100px;">
             <p>Welcome to the RPI CSCI-4961 (Intro to Quantum Computing) home page! Here, you will find information on course content like lectures, lab content, homeworks, and class structure/logistics. Navigate the contents of this webpage using the sidebar to your left (hover your mouse on the left). Intro to Quantum Computing is one of the first quantum computing-focused courses at RPI, aiming to broaden RPIs quantum computing community. This course teaches students basic quantum computing concepts like superposition, entanglement, quantum algorithms and quantum applications. This course takes a hands on approach utilizing RPI's on campus IBM Quantum System One for labs.</p>
-        </div>
+        </div>      
     </div>
     <script src="script.js"></script>
+    <div class="overlay" id="overlay"></div>
 </body>
 </html>
